@@ -1,7 +1,7 @@
 # coding: utf-8
 
 import click
-from .matcher import Text, ExtendedMatch, Matcher
+from matcher import Text, ExtendedMatch, Matcher
 import os
 import glob
 import csv
@@ -49,10 +49,10 @@ def createLog(logfile, columnLabels):
     Creates a log file and sets up headers so that it can be easily read 
     as a CSV later. 
     """
-    header = ','.join(columnLabels) + '\n'
-    with open(logfile, 'w') as f: 
-        # f.write(header) 
-        # f.close
+    # header = ','.join(columnLabels) + '\n'
+    # with open(logfile, 'w') as f: 
+    #     f.write(header) 
+    #     f.close
 
 
 @click.command()
@@ -154,7 +154,7 @@ def cli(text1, text2, threshold, cutoff, ngrams, logfile, verbose, stops):
             logItems = [pair[0], pair[1], threshold, cutoff, ngrams, myMatch.numMatches, myMatch.textA.length, myMatch.textB.length, str(myMatch.locationsA), str(myMatch.locationsB)]
             logging.debug('Logging items: %s' % str(logItems))
             line = ','.join(['"%s"' % item for item in logItems]) + '\n'
-            f = open(logfile, 'a')
+            # f = open(logfile, 'a')
             # f.write(line)
             # f.close()
 
