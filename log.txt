@@ -1,0 +1,2 @@
+Text A,Text B,Threshold,Cutoff,N-Grams,Num Matches,Text A Length,Text B Length,Locations in A,Locations in B
+"prueba1.txt","prueba2.txt","3","5","3","1","113","80","[(43, 80)]","[(15, 52)]"
