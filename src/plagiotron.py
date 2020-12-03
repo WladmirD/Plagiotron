@@ -51,8 +51,8 @@ def createLog(logfile, columnLabels):
     """
     header = ','.join(columnLabels) + '\n'
     with open(logfile, 'w') as f: 
-        f.write(header) 
-        f.close
+        # f.write(header) 
+        # f.close
 
 
 @click.command()
@@ -155,8 +155,8 @@ def cli(text1, text2, threshold, cutoff, ngrams, logfile, verbose, stops):
             logging.debug('Logging items: %s' % str(logItems))
             line = ','.join(['"%s"' % item for item in logItems]) + '\n'
             f = open(logfile, 'a')
-            f.write(line)
-            f.close()
+            # f.write(line)
+            # f.close()
 
 if __name__ == '__main__':
     cli()
