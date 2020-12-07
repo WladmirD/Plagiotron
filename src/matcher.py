@@ -27,7 +27,7 @@ class Text:
         self.trigrams = self.ngrams(3)
 
     def preprocess(self, text):
-        """ Heals hyphenated words, and maybe other things. """
+        """ eliminates hyphen from words"""
         self.text = re.sub(r'([A-Za-z])- ([a-z])', r'\1\2', self.text)
 
     def getTokens(self, removeStopwords=True):
@@ -75,7 +75,7 @@ class ExtendedMatch():
         self.extendedForwards = 0
 
     def __repr__(self):
-        out = "a: %s, b: %s, size a: %s, size b: %s" %                 (self.a, self.b, self.sizeA, self.sizeB)
+        out = "a: %s, b: %s," %                 (self.a, self.b,)
         if self.extendedBackwards:
             out += ", extended backwards x%s" % self.extendedBackwards
         if self.extendedForwards:
@@ -130,8 +130,8 @@ class Matcher():
 
         numBlocks = len(highMatchingBlocks)
 
-        if numBlocks > 0:
-            print('%s total matches found.' % numBlocks, flush=True)
+        # if numBlocks > 0:
+        #     print('%s total matches found.' % numBlocks, flush=True)
 
         return highMatchingBlocks
 
@@ -179,8 +179,8 @@ class Matcher():
         if spansA is not None and spansB is not None:
             self.locationsA.append(spansA)
             self.locationsB.append(spansB)
-            line1 = ('%s: %s %s' % (colored(textA.label, 'green'), spansA, wordsA) )
-            line2 = ('%s: %s %s' % (colored(textB.label, 'green'), spansB, wordsB) )
+            line1 = ('%s: %s' % (colored(textA.label, 'green'), wordsA) )
+            line2 = ('%s: %s' % (colored(textB.label, 'green'), wordsB) )
             out = line1 + '\n' + line2
             return out
 
